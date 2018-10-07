@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="en" dir="ltr">
+  <head>
+
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="bundle.js"></script>
+    <link rel="stylesheet" href="./application.css">
+    <title>Who's The Biggest</title>
+  </head>
+  <body>
+    <header>
+      <h1>Who's The Biggest</h1>
+      <h1>2018 Edition</h1>
+      <h2>
+        Interactive visualization of S&P500 companies by market caps
+      </h2>
+
+    </header>
+    <div id="main">
+      <div id="form">
+        <aside id="sidebar">
+          <h3>Filters By Sectors</h3>
+          <div id="sector-container">
+            <section id="sec-filters">
+              <div>
+                <label for="chkTech" class="tech">Tech</label>
+                <input type="checkbox" value="InformationTechnology" id="chkTech" class="secFilter" checked>
+              </div>
+              <div>
+                <label for="chkHealth" class="health">Healthcare</label>
+                <input type="checkbox" value="HealthCare" id="chkHealth" class="secFilter" checked>
+              </div>
+              <div>
+                <label for="chkInd" class="ind">Industrials</label>
+                <input type="checkbox" value="Industrials" id="chkInd" class="secFilter" checked>
+              </div>
+              <div>
+                <label for="chkUtil" class="util">Utilities</label>
+                <input type="checkbox" value="Utilities" id="chkUtil" class="secFilter" checked>
+              </div>
+              <div>
+                <label for="chkFin" class="fin">Financials</label>
+                <input type="checkbox" value="Financials" id="chkFin" class="secFilter" checked>
+              </div>
+              <div>
+                <label for="chkConDis" class="discretionary">Consumer Discretionary</label>
+                <input type="checkbox" value="ConsumerDiscretionary" id="chkConDis" class="secFilter" checked>
+              </div>
+              <div>
+                <label for="chkConSta" class="staple">Consumer Staples</label>
+                <input type="checkbox" value="ConsumerStaples" id="chkConSta" class="secFilter" checked>
+              </div>
+              <div>
+                <label for="chkReal" class="real">Real Estate</label>
+                <input type="checkbox" value="RealEstate" id="chkReal" class="secFilter" checked>
+              </div>
+              <div>
+                <label for="chkTel" class="tel">Telecommunication Services</label>
+                <input type="checkbox" value="TelecommunicationServices" id="chkTel" class="secFilter" checked>
+              </div>
+              <div>
+                <label for="chkMaterials" class="mat">Materials</label>
+                <input type="checkbox" value="Materials" id="chkMaterials" class="secFilter" checked>
+              </div>
+              <div>
+                <label for="chkEnergy" class="energy">Energy</label>
+                <input type="checkbox" value="Energy" id="chkEnergy" class="secFilter" checked>
+              </div>
+            </section>
+          </div>
+        </aside>
+        <div id="chart-container">
+          <svg id="chart"></svg>
+        </div>
+      </div>
+      <footer>
+        <p></p>
+      </footer>
+    </div>
+  </body>
+</html>

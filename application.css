@@ -1,0 +1,52 @@
+body {
+  background-image: url("https://www.knoxalliance.store/wp-content/uploads/2017/05/light-color-background-images-for-website-top-hd-images-for-free-background-for-website-in-light-color-1-1024x640.jpg");
+  background-size: cover; 
+}
+
+h1 {
+  width: 1797px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  font-style: oblique;
+  font-family: fantasy;
+  color: darkred;
+}
+
+h2 {
+  font-weight: 600;
+  font-family: fantasy;
+}
+
+h3 {
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#sidebar {
+  width: 1500px;
+}
+
+#sec-filters div{
+  width: 150px;
+}
+
+#sec-filters {
+  width: 1797px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#chart-container {
+  width: 1797px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#chart {
+  width: 1500px;
+  height: 1500px;
+}

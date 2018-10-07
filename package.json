@@ -1,0 +1,32 @@
+{
+  "name": "who'sthebiggest",
+  "version": "1.0.0",
+  "description": "company market cap visualization",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify index.js -o bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "watchify index.js -o bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Caida001/stocks-data-visualization.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Caida001/stocks-data-visualization/issues"
+  },
+  "homepage": "https://github.com/Caida001/stocks-data-visualization#readme",
+  "dependencies": {
+    "d3": "^3.5.17",
+    "data.js": "^0.11.5",
+    "papaparse": "^4.6.0",
+    "scramjet": "^4.18.11",
+    "webpack": "^4.20.2"
+  },
+  "devDependencies": {
+    "watchify": "^3.11.0"
+  }
+}

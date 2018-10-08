@@ -5,22 +5,22 @@ d3.csv('financials.csv', function(data) {
   console.log(data)
   // Variables
   var body = d3.select('#chart')
-	var margin = { top: 100, right: 100, bottom: 100, left: 100 }
-	var h = 1500 - margin.top - margin.bottom
-	var w = 1500 - margin.left - margin.right
+	var margin = { top: 50, right: 50, bottom: 50, left: 80 }
+	var h = 1000 - margin.top - margin.bottom
+	var w = 1200 - margin.left - margin.right
 	// Scales
   var colorScale = d3.scale.category20();
   var xScale = d3.scale.linear()
     .domain([
-    	d3.min([0,d3.min(data,function (d) { return d.price })]),
-    	d3.max([0,d3.max(data,function (d) { return d.price })])
+    	d3.min(data,function (d) { return parseInt(d.price) }),
+    	d3.max(data,function (d) { return parseInt(d.price) })
     	])
     .range([0,w])
     .clamp(true);
   var yScale = d3.scale.linear()
     .domain([
-    	d3.min([0,d3.min(data,function (d) { return d.cap })]),
-    	d3.max([0,d3.max(data,function (d) { return d.cap })])
+    	d3.min(data,function (d) { return parseInt(d.cap)/1000000 }),
+    	d3.max(data,function (d) { return parseInt(d.cap)/1000000 })
     	])
     .range([h,0])
     .clamp(true);
@@ -63,7 +63,7 @@ d3.csv('financials.csv', function(data) {
       circles.enter()
     .append('circle')
       .attr('cx',function (d) { return xScale(d.price) })
-      .attr('cy',function (d) { return yScale(d.cap) })
+      .attr('cy',function (d) { return yScale(parseInt(d.cap)/1000000) })
       .attr('r','10')
       .attr('fill',function (d,i) { return colorScale(i) })
       .on('mouseover', function () {
@@ -112,7 +112,7 @@ d3.csv('financials.csv', function(data) {
       .attr('y',5)
       .attr('dy','.71em')
       .style('text-anchor','end')
-      .text('Market Cap')
+      .text('Market Cap / Million')
 })
 
 },{"d3":2}],2:[function(require,module,exports){
@@ -1300,7 +1300,7 @@ d3.csv('financials.csv', function(data) {
           svg.remove();
         }
       }
-      if (d3_mouse_bug44083) point.x = e.pageX, point.y = e.pageY; else point.x = e.clientX, 
+      if (d3_mouse_bug44083) point.x = e.pageX, point.y = e.pageY; else point.x = e.clientX,
       point.y = e.clientY;
       point = point.matrixTransform(container.getScreenCTM().inverse());
       return [ point.x, point.y ];
@@ -1675,7 +1675,7 @@ d3.csv('financials.csv', function(data) {
     }
     function mousewheeled() {
       var dispatch = event.of(this, arguments);
-      if (mousewheelTimer) clearTimeout(mousewheelTimer); else d3_selection_interrupt.call(this), 
+      if (mousewheelTimer) clearTimeout(mousewheelTimer); else d3_selection_interrupt.call(this),
       translate0 = location(center0 = center || d3.mouse(this)), zoomstarted(dispatch);
       mousewheelTimer = setTimeout(function() {
         mousewheelTimer = null;
@@ -2044,7 +2044,7 @@ d3.csv('financials.csv', function(data) {
   d3.xhr = d3_xhrType(d3_identity);
   function d3_xhrType(response) {
     return function(url, mimeType, callback) {
-      if (arguments.length === 2 && typeof mimeType === "function") callback = mimeType, 
+      if (arguments.length === 2 && typeof mimeType === "function") callback = mimeType,
       mimeType = null;
       return d3_xhr(url, mimeType, response, callback);
     };
@@ -2885,7 +2885,7 @@ d3.csv('financials.csv', function(data) {
     return n ? (date.y = d3_time_expandYear(+n[0]), i + n[0].length) : -1;
   }
   function d3_time_parseZone(date, string, i) {
-    return /^[+-]\d{4}$/.test(string = string.slice(i, i + 5)) ? (date.Z = -string, 
+    return /^[+-]\d{4}$/.test(string = string.slice(i, i + 5)) ? (date.Z = -string,
     i + 5) : -1;
   }
   function d3_time_expandYear(d) {
@@ -3078,7 +3078,7 @@ d3.csv('financials.csv', function(data) {
     var λ00, φ00, λ0, cosφ0, sinφ0;
     d3_geo_area.point = function(λ, φ) {
       d3_geo_area.point = nextPoint;
-      λ0 = (λ00 = λ) * d3_radians, cosφ0 = Math.cos(φ = (φ00 = φ) * d3_radians / 2 + π / 4), 
+      λ0 = (λ00 = λ) * d3_radians, cosφ0 = Math.cos(φ = (φ00 = φ) * d3_radians / 2 + π / 4),
       sinφ0 = Math.sin(φ);
     };
     function nextPoint(λ, φ) {
@@ -4907,7 +4907,7 @@ d3.csv('financials.csv', function(data) {
       return _ ? center([ -_[1], _[0] ]) : (_ = center(), [ _[1], -_[0] ]);
     };
     projection.rotate = function(_) {
-      return _ ? rotate([ _[0], _[1], _.length > 2 ? _[2] + 90 : 90 ]) : (_ = rotate(), 
+      return _ ? rotate([ _[0], _[1], _.length > 2 ? _[2] + 90 : 90 ]) : (_ = rotate(),
       [ _[0], _[1], _[2] - 90 ]);
     };
     return rotate([ 0, 0, 90 ]);
@@ -5761,7 +5761,7 @@ d3.csv('financials.csv', function(data) {
     };
     quadtree.extent = function(_) {
       if (!arguments.length) return x1 == null ? null : [ [ x1, y1 ], [ x2, y2 ] ];
-      if (_ == null) x1 = y1 = x2 = y2 = null; else x1 = +_[0][0], y1 = +_[0][1], x2 = +_[1][0], 
+      if (_ == null) x1 = y1 = x2 = y2 = null; else x1 = +_[0][0], y1 = +_[0][1], x2 = +_[1][0],
       y2 = +_[1][1];
       return quadtree;
     };
@@ -7486,7 +7486,7 @@ d3.csv('financials.csv', function(data) {
         return d3_layout_treemapPad(node, x);
       }
       var type;
-      pad = (padding = x) == null ? d3_layout_treemapPadNull : (type = typeof x) === "function" ? padFunction : type === "number" ? (x = [ x, x, x, x ], 
+      pad = (padding = x) == null ? d3_layout_treemapPadNull : (type = typeof x) === "function" ? padFunction : type === "number" ? (x = [ x, x, x, x ],
       padConstant) : padConstant;
       return treemap;
     };
@@ -7889,7 +7889,7 @@ d3.csv('financials.csv', function(data) {
     };
     scale.rangePoints = function(x, padding) {
       if (arguments.length < 2) padding = 0;
-      var start = x[0], stop = x[1], step = domain.length < 2 ? (start = (start + stop) / 2, 
+      var start = x[0], stop = x[1], step = domain.length < 2 ? (start = (start + stop) / 2,
       0) : (stop - start) / (domain.length - 1 + padding);
       range = steps(start + step * padding / 2, step);
       rangeBand = 0;
@@ -7901,7 +7901,7 @@ d3.csv('financials.csv', function(data) {
     };
     scale.rangeRoundPoints = function(x, padding) {
       if (arguments.length < 2) padding = 0;
-      var start = x[0], stop = x[1], step = domain.length < 2 ? (start = stop = Math.round((start + stop) / 2), 
+      var start = x[0], stop = x[1], step = domain.length < 2 ? (start = stop = Math.round((start + stop) / 2),
       0) : (stop - start) / (domain.length - 1 + padding) | 0;
       range = steps(start + Math.round(step * padding / 2 + (stop - start - (domain.length - 1 + padding) * step) / 2), step);
       rangeBand = 0;
@@ -8329,7 +8329,7 @@ d3.csv('financials.csv', function(data) {
     return points.length < 4 ? d3_svg_lineLinear(points) : points[1] + d3_svg_lineHermite(points.slice(1, -1), d3_svg_lineCardinalTangents(points, tension));
   }
   function d3_svg_lineCardinalClosed(points, tension) {
-    return points.length < 3 ? d3_svg_lineLinearClosed(points) : points[0] + d3_svg_lineHermite((points.push(points[0]), 
+    return points.length < 3 ? d3_svg_lineLinearClosed(points) : points[0] + d3_svg_lineHermite((points.push(points[0]),
     points), d3_svg_lineCardinalTangents([ points[points.length - 2] ].concat(points, [ points[1] ]), tension));
   }
   function d3_svg_lineCardinal(points, tension) {
@@ -9102,7 +9102,7 @@ d3.csv('financials.csv', function(data) {
         var g = d3.select(this);
         var scale0 = this.__chart__ || scale, scale1 = this.__chart__ = scale.copy();
         var ticks = tickValues == null ? scale1.ticks ? scale1.ticks.apply(scale1, tickArguments_) : scale1.domain() : tickValues, tickFormat = tickFormat_ == null ? scale1.tickFormat ? scale1.tickFormat.apply(scale1, tickArguments_) : d3_identity : tickFormat_, tick = g.selectAll(".tick").data(ticks, scale1), tickEnter = tick.enter().insert("g", ".domain").attr("class", "tick").style("opacity", ε), tickExit = d3.transition(tick.exit()).style("opacity", ε).remove(), tickUpdate = d3.transition(tick.order()).style("opacity", 1), tickSpacing = Math.max(innerTickSize, 0) + tickPadding, tickTransform;
-        var range = d3_scaleRange(scale1), path = g.selectAll(".domain").data([ 0 ]), pathUpdate = (path.enter().append("path").attr("class", "domain"), 
+        var range = d3_scaleRange(scale1), path = g.selectAll(".domain").data([ 0 ]), pathUpdate = (path.enter().append("path").attr("class", "domain"),
         d3.transition(path));
         tickEnter.append("line");
         tickEnter.append("text");

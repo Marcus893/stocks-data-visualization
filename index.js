@@ -4,22 +4,22 @@ d3.csv('financials.csv', function(data) {
   console.log(data)
   // Variables
   var body = d3.select('#chart')
-	var margin = { top: 100, right: 100, bottom: 100, left: 100 }
-	var h = 1500 - margin.top - margin.bottom
-	var w = 1500 - margin.left - margin.right
+	var margin = { top: 50, right: 50, bottom: 50, left: 80 }
+	var h = 1000 - margin.top - margin.bottom
+	var w = 1000 - margin.left - margin.right
 	// Scales
   var colorScale = d3.scale.category20();
   var xScale = d3.scale.linear()
     .domain([
-    	d3.min([0,d3.min(data,function (d) { return d.price })]),
-    	d3.max([0,d3.max(data,function (d) { return d.price })])
+    	d3.min(data,function (d) { return parseInt(d.price) }),
+    	d3.max(data,function (d) { return parseInt(d.price) })
     	])
     .range([0,w])
     .clamp(true);
   var yScale = d3.scale.linear()
     .domain([
-    	d3.min([0,d3.min(data,function (d) { return d.cap })]),
-    	d3.max([0,d3.max(data,function (d) { return d.cap })])
+    	d3.min(data,function (d) { return parseInt(d.cap)/1000000 }),
+    	d3.max(data,function (d) { return parseInt(d.cap)/1000000 })
     	])
     .range([h,0])
     .clamp(true);
@@ -62,7 +62,7 @@ d3.csv('financials.csv', function(data) {
       circles.enter()
     .append('circle')
       .attr('cx',function (d) { return xScale(d.price) })
-      .attr('cy',function (d) { return yScale(d.cap) })
+      .attr('cy',function (d) { return yScale(parseInt(d.cap)/1000000) })
       .attr('r','10')
       .attr('fill',function (d,i) { return colorScale(i) })
       .on('mouseover', function () {
@@ -111,5 +111,5 @@ d3.csv('financials.csv', function(data) {
       .attr('y',5)
       .attr('dy','.71em')
       .style('text-anchor','end')
-      .text('Market Cap')
+      .text('Market Cap / Million')
 })

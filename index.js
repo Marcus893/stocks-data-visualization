@@ -5,7 +5,7 @@ d3.csv('financials.csv', function(data) {
   // Variables
   var body = d3.select('#chart')
 	var margin = { top: 50, right: 50, bottom: 50, left: 80 }
-	var h = 1000 - margin.top - margin.bottom
+	var h = 800 - margin.top - margin.bottom
 	var w = 1000 - margin.left - margin.right
 	// Scales
   var colorScale = d3.scale.category20();
@@ -54,7 +54,7 @@ d3.csv('financials.csv', function(data) {
     if(choices.length > 0){
       newData = data.filter(function(d, i){ return choices.includes(d.sector);});
     } else {
-      newData = data;
+      newData = {};
     }
 
   circles = svg.selectAll('circle').data(newData);
@@ -63,18 +63,18 @@ d3.csv('financials.csv', function(data) {
     .append('circle')
       .attr('cx',function (d) { return xScale(d.price) })
       .attr('cy',function (d) { return yScale(parseInt(d.cap)/1000000) })
-      .attr('r','10')
+      .attr('r', 10)
       .attr('fill',function (d,i) { return colorScale(i) })
-      .on('mouseover', function () {
+      .on('mouseenter', function () {
         d3.select(this)
           .transition()
-          .duration(300)
+          .duration(200)
           .attr('r',20)
       })
-      .on('mouseout', function () {
+      .on('mouseleave', function () {
         d3.select(this)
           .transition()
-          .duration(300)
+          .duration(200)
           .attr('r',10)
       })
     .append('title') // Tooltip

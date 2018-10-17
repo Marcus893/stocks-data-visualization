@@ -14,4 +14,5 @@ This project is implemented with the following technologies:
 - `JavaScript` for game logic,
 - `HTML`, `CSS` and `d3` for frontend
 
-![screenshot from 2018-10-08 16-50-23](https://user-images.githubusercontent.com/38970716/46633060-9984b700-cb1a-11e8-9a29-6bc14a732b5f.png)
+![screenshot from 2018-10-17 15-27-04](https://user-images.githubusercontent.com/38970716/47112104-5f569c00-d223-11e8-8304-a2e4f9eeaedb.png)
+

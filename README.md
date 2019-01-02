@@ -17,4 +17,5 @@ This project is implemented with the following technologies:
 
 - `JavaScript`, `HTML`, `CSS` and `D3.js` 
 
-![screenshot from 2018-10-17 15-27-04](https://user-images.githubusercontent.com/38970716/47112104-5f569c00-d223-11e8-8304-a2e4f9eeaedb.png)
+![screenshot from 2019-01-01 22-13-56](https://user-images.githubusercontent.com/38970716/50579667-2fc43280-0e15-11e9-92a2-9d80b01ba8a7.png)
+

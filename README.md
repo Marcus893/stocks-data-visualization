@@ -19,3 +19,35 @@ This project is implemented with the following technologies:
 
 ![screenshot from 2019-01-01 22-13-56](https://user-images.githubusercontent.com/38970716/50579667-2fc43280-0e15-11e9-92a2-9d80b01ba8a7.png)
 
+### Code Showcase
+Create circle and append tooltip. Attach event listener for mouse over and mouse leave to add visual effect when user selects a circle
+```Javascript
+circles = svg.selectAll('circle').data(newData);
+
+    circles.enter()
+    .append('circle')
+      .attr('cx',function (d) { return xScale(d.price) })
+      .attr('cy',function (d) { return yScale(parseInt(d.cap)/1000000) })
+      .attr('r', 10)
+      .attr('fill',function (d,i) { return colorScale(i) })
+      .on('mouseenter', function () {
+        d3.select(this)
+          .transition()
+          .duration(200)
+          .attr('r',20)
+      })
+      .on('mouseleave', function () {
+        d3.select(this)
+          .transition()
+          .duration(200)
+          .attr('r',10)
+      })
+    .append('title') // Tooltip
+      .text(function (d) { return d.name +
+                            '\nTicker: ' + d.symbol +
+                            '\nSector: ' + d.sector +
+                           '\nMarket Cap: $' + d.cap +
+                           '\nPrice/share: $' + d.price });
+
+      circles.exit().remove();
+```

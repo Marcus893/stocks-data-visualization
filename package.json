@@ -1,5 +1,5 @@
 {
-  "name": "who'sthebiggest",
+  "name": "Stocks Data Visualization",
   "version": "1.0.0",
   "description": "company market cap visualization",
   "main": "index.js",
@@ -10,20 +10,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Caida001/stocks-data-visualization.git"
+    "url": "git+https://github.com/Marcus893/stocks-data-visualization.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Caida001/stocks-data-visualization/issues"
+    "url": "https://github.com/Marcus893/stocks-data-visualization/issues"
   },
-  "homepage": "https://github.com/Caida001/stocks-data-visualization#readme",
+  "homepage": "https://github.com/Marcus893/stocks-data-visualization#readme",
   "dependencies": {
     "d3": "^3.5.17",
-    "data.js": "^0.11.5",
-    "papaparse": "^4.6.0",
-    "scramjet": "^4.18.11",
     "webpack": "^4.20.2"
   },
   "devDependencies": {

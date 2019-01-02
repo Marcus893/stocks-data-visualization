@@ -4,19 +4,18 @@
   <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="bundle.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js' charset="utf-8"></script>
+
     <link rel="stylesheet" href="./application.css">
-    <title>Who's The Biggest</title>
+    <title>Stocks Data Visualization</title>
   </head>
   <body>
     <header>
-      <h1>Who's The Biggest</h1>
-      <h2>
-        Interactive visualization of S&P500 companies by market caps
-      </h2>
+      <h1>Stocks Data Visualization</h1>
 
     </header>
     <div id="main">
+      <div id="charts">
       <div id="form">
         <aside id="sidebar">
           <h3>Filters By Sector</h3>
@@ -71,15 +70,22 @@
         </aside>
           <svg id="chart"></svg>
 
+
       </div>
+
+      <svg id="linechart"></svg>
+    </div>
+
+
       <div class="links">
-        <a class="logo" href="https://github.com/Caida001" target="_blank"><i class="fab fa-github"></i></a>
-        <a class="logo" href="https://www.linkedin.com/in/caida-ding/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a class='logo' href="https://angel.co/caida-ding" target="_blank"><i class="fab fa-angellist"></i></a>
+        <a class="logo" href="https://github.com/Marcus893" target="_blank"><i class="fab fa-github"></i></a>
+        <a class="logo" href="https://www.linkedin.com/in/marcus-ding/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a class='logo' href="https://angel.co/marcus-ding" target="_blank"><i class="fab fa-angellist"></i></a>
         <a class='logo' href="https://caidading.com" target="_blank"><i class="fas fa-home"></i></a>
       </div>
-      <h3>Caida Ding</h3>
-      <h3>go to my portfolio site to see more projects</h3>
+      <h3>Marcus Ding</h3>
+      <h3>Go to my portfolio site to see more projects</h3>
     </div>
+<script src="bundle.js"></script>
   </body>
 </html>

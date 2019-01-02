@@ -52,7 +52,7 @@ circles = svg.selectAll('circle').data(newData);
       circles.exit().remove();
 ```
 
-### Screenshots 
+### Features Demo
 
 ![stock1](https://user-images.githubusercontent.com/38970716/50579862-eecd1d80-0e16-11e9-809b-6f9eb2c0a0f5.gif)
 
